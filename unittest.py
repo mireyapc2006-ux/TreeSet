@@ -1,11 +1,9 @@
 import unittest
+from TreeSet import TreeSet
 from Node import Node
 
 class Tests(unittest.TestCase):
     
-    # @classmethod
-    # def setUpClass(cls):
-    #     o1 = Node(5)
     
     def test_Node(self):
         o1 = Node(5)
@@ -27,7 +25,13 @@ class Tests(unittest.TestCase):
         self.assertEqual(o1.left, o3)
         self.assertEqual(o3.parent, o1)
         self.assertEqual(o3.color, 1)
-        
+    
+    def test_TreeConstructor(self):
+        t1 = TreeSet(2)
+        self.assertEqual(t1.size(), 1)
+        self.assertEqual(t1.root.value, 2)
+        self.assertEqual(t1.first().value, 2)
+        self.assertEqual(t1.last().value, 2)
      
     @classmethod   
     def execute(cls):
