@@ -17,7 +17,7 @@ class TreeSet:
     def root(self):
         return self.__root
     
-    def size():
+    def size(self):
         return self.__size
     
     def add(self, value):
@@ -54,17 +54,17 @@ class TreeSet:
         self.__last = None
 
     @property
-    def first():
+    def first(self):
         return self.__first
     
-    def first():
+    def first(self):
         return self.__first
     
     @property
-    def last():
+    def last(self):
         return self.__last
     
-    def last():
+    def last(self):
         return self.__last
     
     def __iter__(self):
