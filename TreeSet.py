@@ -47,6 +47,12 @@ class TreeSet:
     def is_empty(self):
         return self.__size == 0
 
+    def clear(self):
+        self.__root = None
+        self.__size = 0
+        self.__first = None
+        self.__last = None
+
     @property
     def first():
         return self.__first
