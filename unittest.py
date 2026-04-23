@@ -27,11 +27,32 @@ class Tests(unittest.TestCase):
         self.assertEqual(o3.color, 1)
     
     def test_TreeConstructor(self):
+        t1 = TreeSet()
+        self.assertEqual(t1.size(), 0)
+        self.assertEqual(t1.root, None)
+        self.assertEqual(t1.first(), None)
+        self.assertEqual(t1.last(), None)
+        
         t1 = TreeSet(2)
         self.assertEqual(t1.size(), 1)
         self.assertEqual(t1.root.value, 2)
         self.assertEqual(t1.first().value, 2)
         self.assertEqual(t1.last().value, 2)
+
+    
+    def test_TreeEmpty(self):
+        t1 = TreeSet()
+        self.assertEqual(t1.is_empty(), True)
+        t1 = TreeSet(2)
+        self.assertEqual(t1.is_empty(), False)
+    
+    def testTreeClear(self):
+        t1 = TreeSet(2)
+        t1.clear()
+        self.assertEqual(t1.size(), 0)
+        self.assertEqual(t1.root, None)
+        self.assertEqual(t1.first(), None)
+        self.assertEqual(t1.last(), None)
      
     @classmethod   
     def execute(cls):
