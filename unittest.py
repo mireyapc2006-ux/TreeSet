@@ -74,6 +74,11 @@ class Tests(unittest.TestCase):
         self.assertEqual(t1.root.value, 1)
         self.assertEqual(t1.first().value, 1)
         self.assertEqual(t1.last().value, 37)
+        t1.add(2)
+        self.assertEqual(t1.size(), 3)
+        self.assertEqual(t1.root.value, 1)
+        self.assertEqual(t1.first().value, 1)
+        self.assertEqual(t1.last().value, 2)
         
     def testTreeContains(self):
         t1 = TreeSet()
