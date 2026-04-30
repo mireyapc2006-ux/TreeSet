@@ -21,6 +21,8 @@ class TreeSet:
         return self.__size
     
     def add(self, value):
+        if self.contains(value):
+            return False
         if self.__root is None:
             self.__root = Node(value)
             self.__first = self.__root
@@ -30,6 +32,7 @@ class TreeSet:
            self.__last = Node(value)
         
         self.__size += 1
+        return True
 
     def __add_value(self, parent, value):
         if value < parent.value:
@@ -91,4 +94,4 @@ class TreeSet:
     
     def last(self):
         return self.__last
-
+    
