@@ -21,27 +21,52 @@ class TreeSet:
         return self.__size
     
     def add(self, value):
-        if (self.__root is None):
+        if self.__root is None:
             self.__root = Node(value)
+            self.__first = self.__root
+            self.__last = self.__root
         else:
-            __add_value(self.__root, value)
+           self._TreeSet__add_value(self.__root, value)
+           self.__last = Node(value)
         
         self.__size += 1
 
     def __add_value(self, parent, value):
-        if (value < parent.value):
+        if value < parent.value:
             if parent.left is None:
                 parent.left = Node(value)
                 return
             else:
-                return __add_value(parent.left, value)
+                return self._TreeSet__add_value(parent.left, value)
         
         elif (value > parent.value):
             if parent.right is None:
                 parent.right = Node(value)
                 return
             else:
-                return __add_value(parent.right, value)
+                return self._TreeSet__add_value(parent.right, value)
+    
+    def contains(self, value):
+        if self.__size == 0:
+            return False
+        else:
+            return self._TreeSet__search_value(self.__root, value)
+    
+    def __search_value(self, parent, value):
+        if value == parent.value:
+            return True
+        elif value < parent.value:
+            if parent.left is None:
+                return False
+            if parent.left.value == value:
+                return True
+            return self._TreeSet__search_value(parent.left, value)
+        else:
+            if parent.right is None:
+                return False
+            if parent.right.value == value:
+                return True
+            return self._TreeSet__search_value(parent.right, value)
         
     
     def is_empty(self):
@@ -66,7 +91,4 @@ class TreeSet:
     
     def last(self):
         return self.__last
-    
-    def __iter__(self):
-        pass
 
