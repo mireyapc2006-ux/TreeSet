@@ -81,6 +81,18 @@ class TreeSet:
         self.__first = None
         self.__last = None
 
+    def iterator(self):
+        return self._in_order(self.__root)
+
+    def _in_order(self, node):
+        if node is not None:
+            yield from self._in_order(node.left)
+            yield node.value
+            yield from self._in_order(node.right)
+
+    def __iter__(self):
+        return self.iterator()
+
     @property
     def first(self):
         return self.__first
