@@ -1,4 +1,6 @@
 from Node import Node
+import copy
+from collections.abc import Iterable
 
 class TreeSet:
     def __init__(self, value = None):
@@ -70,7 +72,23 @@ class TreeSet:
             if parent.right.value == value:
                 return True
             return self._TreeSet__search_value(parent.right, value)
+
+    def clone(self):
+        new_set = Treeset()
+        new_set__element_type = self.__element_type
         
+        for elemento in self:
+            new_set.add(elemento)
+        
+        return new_set
+        
+    def addAll(self, collection):
+        if not isinstance(collection, Iterable):
+            raise TypeError("El argumento debe de ser collection o Iterable")
+        for elemento in collection:
+            if not self.add(elemento):
+                return False
+        return True
     
     def is_empty(self):
         return self.__size == 0
