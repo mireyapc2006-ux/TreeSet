@@ -90,6 +90,15 @@ class Tests(unittest.TestCase):
         self.assertEqual(t1.contains(2), True)
         self.assertEqual(t1.contains(8), True)
         self.assertEqual(t1.contains(-1), True)
+
+    def testTreeIterator(self):
+        t1 = TreeSet()
+        t1.addAll([10, 5, 15, 2, 7, 12, 20])
+        expected_order = [2, 5, 7, 10, 12, 15, 20]
+        result_from_iterator = list(t1.iterator())
+        self.assertEqual(result_from_iterator, expected_order)
+        result_from_loop = [x for x in t1]
+        self.assertEqual(result_from_loop, expected_order)
      
     @classmethod   
     def execute(cls):
